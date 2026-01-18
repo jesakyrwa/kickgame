@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knight Online PK Serverlar | PvpPazari.com</title>
+    <style>
+        :root { --bg: #0b0e14; --card: #161b22; --primary: #3b82f6; --text: #c9d1d9; }
+        body { font-family: 'Tahoma', sans-serif; background: var(--bg); color: var(--text); margin: 0; }
+        nav { background: #010409; padding: 15px; border-bottom: 2px solid var(--primary); text-align: center; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .server-row { background: var(--card); border: 1px solid #30363d; margin-bottom: 10px; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-radius: 6px; }
+        .server-info h4 { margin: 0; color: var(--primary); }
+        .btn-pk { background: #238636; color: white; padding: 8px 20px; text-decoration: none; border-radius: 6px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<nav><a href="index.html" style="color:var(--primary); text-decoration:none; font-weight:bold; font-size:1.5rem;">PvpPazari.com</a></nav>
+
+<div class="container">
+    <h1 style="color: var(--primary);">Knight Online PK / 83-1 Serverlar</h1>
+    <p>Günün her saati PK atabileceğiniz, itemlerin ücretsiz olduğu serverlar listesi.</p>
+
+    <div id="pk-list">
+        <script>
+            const koServers = [
+                "SexyKO", "KnightWorld", "DeathKO", "ZionKO", "ApexKO", "LegendKO", "OldKO", "DarkKO",
+                "VatKO", "EmpireKO", "TitanKO", "EuroKO", "AresPK", "DiezPK", "XigenonPK", "BeramusPK",
+                "CypherKO", "OlympiaPK", "EdanaKO", "ManesPK", "AkaraKO", "PianaPK", "GaiaKO", "AsgardPK",
+                "OrionKO", "MidgardPK", "DestanPK", "RosettaKO", "GordionPK", "Vegako"
+            ];
+            
+            const list = document.getElementById('pk-list');
+            koServers.forEach(s => {
+                list.innerHTML += `
+                    <div class="server-row">
+                        <div class="server-info">
+                            <h4>${s} - [83/1 FULL PK]</h4>
+                            <small style="color:#8b949e">Ücretsiz PUS | Ödüllü CSW Pazar Günü</small>
+                        </div>
+                        <div style="text-align:right;">
+                            <span style="color:#4ade80; display:block; margin-bottom:5px;">● 2.500+ User</span>
+                            <a href="#" class="btn-pk">PANEL</a>
+                        </div>
+                    </div>
+                `;
+            });
+        </script>
+    </div>
+</div>
+
+</body>
+</html>
