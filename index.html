@@ -56,7 +56,25 @@
         .legal-notice { color: #64748b; font-size: 12px; line-height: 1.6; max-width: 800px; margin: 0 auto; }
     </style>
 </head>
-<body>
+<div id="intro" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#020617; z-index:9999; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <h1 style="color:#fbbf24; font-size:3rem; margin-bottom:10px; animation: pulse 2s infinite;">PVPPAZARI.COM</h1>
+    <div style="width:200px; height:4px; background:#1e293b; border-radius:10px; overflow:hidden;">
+        <div style="width:0%; height:100%; background:#fbbf24; animation: load 2.5s forwards;"></div>
+    </div>
+    <p style="color:#64748b; margin-top:15px;">Yükleniyor...</p>
+</div>
+
+<style>
+    @keyframes load { to { width: 100%; } }
+    @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+</style>
+
+<script>
+    // Intro'yu 2.5 saniye sonra kaldırır
+    setTimeout(() => {
+        document.getElementById('intro').style.display = 'none';
+    }, 2500);
+</script> <body>
 
 <nav>
     <ul class="navbar">
@@ -202,3 +220,4 @@
 
 </body>
 </html>
+
