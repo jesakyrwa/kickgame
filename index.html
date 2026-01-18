@@ -3,194 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PvpPazari.com | Server Tanıtımı ve Pazar Yeri</title>
+    <title>PvpPazari.com | Oyun ve Ticaret Merkezi</title>
     <style>
         :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --primary: #f59e0b; /* Turuncu/Altın - Reklam Rengi */
-            --accent: #3b82f6; /* Mavi - Pazar Yeri Rengi */
-            --text: #f8fafc;
+            --bg-dark: #0a0f1a;
+            --card-bg: #161e2d;
+            --primary: #fbbf24; /* Altın Sarısı */
+            --secondary: #2563eb; /* Mavi */
+            --text-light: #f1f5f9;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
-            color: var(--text);
+            color: var(--text-light);
             margin: 0;
             padding: 0;
         }
 
-        /* Navigasyon */
+        /* Üst Menü & Dropdown */
         nav {
             background: #020617;
-            padding: 1rem 5%;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center;
             border-bottom: 2px solid var(--primary);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-        .menu a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
-        .menu a:hover { color: var(--primary); }
-
-        /* Reklam Alanı (VİP) */
-        .vip-ads {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 2rem 5%;
-            background: rgba(245, 158, 11, 0.1);
+        .navbar {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
         }
 
-        .ad-card {
-            background: var(--card-bg);
-            border: 1px solid var(--primary);
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
+        .nav-item {
             position: relative;
-        }
-
-        .ad-card::before {
-            content: "SPONSORLU";
-            position: absolute;
-            top: -10px;
-            left: 10px;
-            background: var(--primary);
-            font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 4px;
-        }
-
-        /* Ana İçerik */
-        .container {
-            display: flex;
-            padding: 2rem 5%;
-            gap: 30px;
-        }
-
-        .main-content { flex: 3; }
-        .sidebar { flex: 1; }
-
-        .section-title {
-            border-left: 4px solid var(--primary);
-            padding-left: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Server Listesi */
-        .server-item {
-            background: var(--card-bg);
-            margin-bottom: 10px;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 5px;
+            padding: 20px 25px;
+            cursor: pointer;
+            font-weight: 600;
             transition: 0.3s;
         }
 
-        .server-item:hover { transform: scale(1.01); background: #2d3748; }
+        .nav-item:hover { background: #1e293b; color: var(--primary); }
 
-        .play-btn {
+        /* Dropdown (Açılır Menü) */
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #1e293b;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .nav-item:hover .dropdown { display: block; }
+
+        .dropdown a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+        }
+
+        .dropdown a:hover { background: #334155; color: var(--primary); }
+
+        /* Kayan Banner Reklam Alanı */
+        .banner-container {
+            width: 100%;
+            overflow: hidden;
+            background: #000;
+            padding: 10px 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        .scrolling-banner {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 30s linear infinite;
+        }
+
+        .banner-item {
+            padding: 0 50px;
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Ana İçerik Kapasitesi */
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Server Kartları */
+        .server-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .server-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #2d3748;
+            transition: 0.3s;
+        }
+
+        .server-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+
+        .btn {
             background: var(--primary);
             color: black;
-            padding: 8px 15px;
-            border-radius: 4px;
+            padding: 10px 20px;
+            border-radius: 6px;
             text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
             font-weight: bold;
+            width: 100%;
+            text-align: center;
         }
-
-        /* Pazar Yeri Sidebar */
-        .market-item {
-            background: #0f172a;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            border: 1px solid #334155;
-        }
-
-        .price { color: #4ade80; font-weight: bold; }
 
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo">PvpPazari.com</div>
-    <div class="menu">
-        <a href="#">Ana Sayfa</a>
-        <a href="#">Metin2 PvP</a>
-        <a href="#">Knight Online</a>
-        <a href="#">Pazar Yeri</a>
-        <a href="#">Forum</a>
-    </div>
+    <ul class="navbar">
+        <li class="nav-item">Ana Sayfa</li>
+        <li class="nav-item">
+            Metin2 PvP ▼
+            <div class="dropdown">
+                <a href="#">1-99 Emek Serverlar</a>
+                <a href="#">55-120 Orta Serverlar</a>
+                <a href="#">65-250 Wslik Serverlar</a>
+                <a href="#">Yeni Açılacaklar</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            Knight Online ▼
+            <div class="dropdown">
+                <a href="#">MyKO Serverlar</a>
+                <a href="#">HomeKO Serverlar</a>
+                <a href="#">PK Serverlar</a>
+            </div>
+        </li>
+        <li class="nav-item">Pazar Yeri</li>
+        <li class="nav-item">Forum</li>
+    </ul>
 </nav>
 
-<div class="vip-ads">
-    <div class="ad-card">
-        <h3>EfsaneMT2 - 19 Ocak Açılıyor!</h3>
-        <p>1-99 Emek Yapısıyla Geri Dönüyoruz.</p>
-        <a href="#" class="play-btn">Kayıt Ol</a>
-    </div>
-    <div class="ad-card">
-        <h3>KnightWorld KO</h3>
-        <p>83/1 Full PK Server. Ödüllü CSW!</p>
-        <a href="#" class="play-btn">Hemen Katıl</a>
+<div class="banner-container">
+    <div class="scrolling-banner">
+        <span class="banner-item">🔥 EFSANEMT2 19 OCAK'TA SİZLERLE! 🔥</span>
+        <span class="banner-item">🛡️ KNIGHTWORLD CSW ÖDÜLÜ: 50.000 TL 🛡️</span>
+        <span class="banner-item">💰 PAZAR YERİNDE %0 KOMİSYON FIRSATI 💰</span>
+        <span class="banner-item">🔥 EFSANEMT2 19 OCAK'TA SİZLERLE! 🔥</span>
     </div>
 </div>
 
-<div class="container">
-    <div class="main-content">
-        <h2 class="section-title">Popüler PvP Serverlar</h2>
+<div class="content-wrapper">
+    <h2>Öne Çıkan Serverlar</h2>
+    <div class="server-grid">
+        <div class="server-card">
+            <h3 style="color:var(--primary)">MilasMT2</h3>
+            <p>Tür: 1-99 Emek<br>Durum: <span style="color:#4ade80">AKTİF</span></p>
+            <p>Efsane kadro, hilesiz oyun keyfi!</p>
+            <a href="#" class="btn">Hemen Oyna</a>
+        </div>
         
-        <div class="server-item">
-            <div>
-                <strong>MilasMT2</strong> <small>(55-120 Orta Emek)</small><br>
-                <span>Aktif Oyuncu: 12.450</span>
-            </div>
-            <a href="#" class="play-btn">İncele</a>
+        <div class="server-card">
+            <h3 style="color:var(--primary)">AnatoliaKO</h3>
+            <p>Tür: PK / Farm<br>Durum: <span style="color:#fbbf24">AÇILIYOR</span></p>
+            <p>Eski Knight Online tadını burada bulacaksın.</p>
+            <a href="#" class="btn">Kayıt Ol</a>
         </div>
-
-        <div class="server-item">
-            <div>
-                <strong>RiseKO</strong> <small>(Farm & PK)</small><br>
-                <span>Aktif Oyuncu: 8.200</span>
-            </div>
-            <a href="#" class="play-btn">İncele</a>
-        </div>
-
-        <div class="server-item" style="opacity: 0.7;">
-            <div>
-                <strong>HisarMT2</strong> <small>(1-105 Emek)</small><br>
-                <span>Açılış: 25 Ocak</span>
-            </div>
-            <span style="color: var(--primary);">YAKINDA</span>
-        </div>
-    </div>
-
-    <div class="sidebar">
-        <h2 class="section-title">Son İlanlar</h2>
-        
-        <div class="market-item">
-            +9 Sirius Kılıcı (Ort: 45)<br>
-            <span class="price">750.00 TL</span>
-        </div>
-
-        <div class="market-item">
-            10 GB - Diez Serverı<br>
-            <span class="price">120.00 TL</span>
-        </div>
-
-        <div class="market-item">
-            Full İtemli Sura (105 Lvl)<br>
-            <span class="price">2,400.00 TL</span>
-        </div>
-
-        <a href="#" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Tüm İlanları Gör →</a>
     </div>
 </div>
 
