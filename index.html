@@ -3,142 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PvpPazari.com | Oyun ve Ticaret Merkezi</title>
+    <title>PvpPazari.com | PvP Server Tanıtımı ve Pazar Yeri</title>
     <style>
         :root {
-            --bg-dark: #0a0f1a;
-            --card-bg: #161e2d;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
             --primary: #fbbf24; /* Altın Sarısı */
-            --secondary: #2563eb; /* Mavi */
-            --text-light: #f1f5f9;
+            --accent: #3b82f6; /* Mavi */
+            --text: #f8fafc;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            margin: 0;
-            padding: 0;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text); margin: 0; padding: 0; }
 
-        /* Üst Menü & Dropdown */
-        nav {
-            background: #020617;
-            display: flex;
-            justify-content: center;
-            border-bottom: 2px solid var(--primary);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-item {
-            position: relative;
-            padding: 20px 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
+        /* --- ÜST MENÜ & DROPDOWN --- */
+        nav { background: #020617; display: flex; justify-content: center; border-bottom: 2px solid var(--primary); position: sticky; top: 0; z-index: 1000; }
+        .navbar { display: flex; list-style: none; margin: 0; padding: 0; }
+        .nav-item { position: relative; padding: 20px 25px; cursor: pointer; font-weight: 600; }
         .nav-item:hover { background: #1e293b; color: var(--primary); }
-
-        /* Dropdown (Açılır Menü) */
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #1e293b;
-            min-width: 200px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-            border-bottom: 3px solid var(--primary);
-        }
-
+        .dropdown { display: none; position: absolute; top: 100%; left: 0; background: #1e293b; min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); border-bottom: 3px solid var(--primary); }
         .nav-item:hover .dropdown { display: block; }
+        .dropdown a { color: white; padding: 12px 16px; text-decoration: none; display: block; font-size: 14px; }
+        .dropdown a:hover { background: #334155; }
 
-        .dropdown a {
-            color: white;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            font-size: 14px;
-        }
+        /* --- KAYAN REKLAM --- */
+        .banner-container { width: 100%; overflow: hidden; background: #000; padding: 10px 0; border-bottom: 1px solid #334155; }
+        .scrolling-banner { display: flex; white-space: nowrap; animation: scroll 30s linear infinite; }
+        .banner-item { padding: 0 50px; font-weight: bold; color: var(--primary); font-size: 1rem; }
+        @keyframes scroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .dropdown a:hover { background: #334155; color: var(--primary); }
+        /* --- ANA İÇERİK YAPISI --- */
+        .content-wrapper { max-width: 1200px; margin: 20px auto; padding: 0 20px; display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
+        .section-title { border-left: 4px solid var(--primary); padding-left: 10px; margin-bottom: 20px; }
 
-        /* Kayan Banner Reklam Alanı */
-        .banner-container {
-            width: 100%;
-            overflow: hidden;
-            background: #000;
-            padding: 10px 0;
-            border-bottom: 1px solid #334155;
-        }
+        /* --- SERVER KARTLARI (SOL TARAF) --- */
+        .server-card-horizontal { background: var(--card-bg); border-radius: 10px; display: flex; align-items: center; padding: 15px; border: 1px solid #334155; margin-bottom: 15px; transition: 0.3s; }
+        .server-card-horizontal:hover { border-color: var(--primary); transform: translateX(5px); }
+        .server-logo { width: 70px; height: 70px; background: #0f172a; border-radius: 8px; margin-right: 20px; }
+        .play-btn { background: var(--primary); color: #000; padding: 8px 15px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 13px; }
 
-        .scrolling-banner {
-            display: flex;
-            white-space: nowrap;
-            animation: scroll 30s linear infinite;
-        }
+        /* --- PAZAR YERİ (SAĞ TARAF) --- */
+        .market-sidebar { background: #111827; padding: 20px; border-radius: 12px; border: 1px solid #374151; }
+        .item-card { display: flex; align-items: center; padding: 10px; border-bottom: 1px solid #1f2937; }
+        .item-img { width: 40px; height: 40px; border-radius: 4px; margin-right: 12px; }
+        .item-info b { color: #4ade80; display: block; }
 
-        .banner-item {
-            padding: 0 50px;
-            font-weight: bold;
-            color: var(--primary);
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Ana İçerik Kapasitesi */
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        /* Server Kartları */
-        .server-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .server-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid #2d3748;
-            transition: 0.3s;
-        }
-
-        .server-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-
-        .btn {
-            background: var(--primary);
-            color: black;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 15px;
-            font-weight: bold;
-            width: 100%;
-            text-align: center;
-        }
-
+        /* --- 3. HUKUKİ UYARI (FOOTER) --- */
+        footer { background: #020617; padding: 30px 5%; text-align: center; border-top: 1px solid #334155; margin-top: 50px; }
+        .legal-notice { color: #64748b; font-size: 12px; line-height: 1.6; max-width: 800px; margin: 0 auto; }
     </style>
 </head>
 <body>
@@ -152,19 +63,17 @@
                 <a href="#">1-99 Emek Serverlar</a>
                 <a href="#">55-120 Orta Serverlar</a>
                 <a href="#">65-250 Wslik Serverlar</a>
-                <a href="#">Yeni Açılacaklar</a>
             </div>
         </li>
         <li class="nav-item">
             Knight Online ▼
             <div class="dropdown">
-                <a href="#">MyKO Serverlar</a>
                 <a href="#">HomeKO Serverlar</a>
                 <a href="#">PK Serverlar</a>
             </div>
         </li>
         <li class="nav-item">Pazar Yeri</li>
-        <li class="nav-item">Forum</li>
+        <li class="nav-item">Reklam Ver</li>
     </ul>
 </nav>
 
@@ -173,28 +82,59 @@
         <span class="banner-item">🔥 EFSANEMT2 19 OCAK'TA SİZLERLE! 🔥</span>
         <span class="banner-item">🛡️ KNIGHTWORLD CSW ÖDÜLÜ: 50.000 TL 🛡️</span>
         <span class="banner-item">💰 PAZAR YERİNDE %0 KOMİSYON FIRSATI 💰</span>
-        <span class="banner-item">🔥 EFSANEMT2 19 OCAK'TA SİZLERLE! 🔥</span>
     </div>
 </div>
 
 <div class="content-wrapper">
-    <h2>Öne Çıkan Serverlar</h2>
-    <div class="server-grid">
-        <div class="server-card">
-            <h3 style="color:var(--primary)">MilasMT2</h3>
-            <p>Tür: 1-99 Emek<br>Durum: <span style="color:#4ade80">AKTİF</span></p>
-            <p>Efsane kadro, hilesiz oyun keyfi!</p>
-            <a href="#" class="btn">Hemen Oyna</a>
-        </div>
+    <div>
+        <h2 class="section-title">Popüler PvP Serverlar</h2>
         
-        <div class="server-card">
-            <h3 style="color:var(--primary)">AnatoliaKO</h3>
-            <p>Tür: PK / Farm<br>Durum: <span style="color:#fbbf24">AÇILIYOR</span></p>
-            <p>Eski Knight Online tadını burada bulacaksın.</p>
-            <a href="#" class="btn">Kayıt Ol</a>
+        <div class="server-card-horizontal">
+            <img src="https://placehold.co/70x70/orange/white?text=LOGO" class="server-logo">
+            <div style="flex-grow: 1;">
+                <h4 style="margin:0">MilasMT2 - Orta Emek</h4>
+                <p style="margin:5px 0; font-size:13px; color:#9ca3af;">Aktif: 12.450 | Lonca Turnuvası Aktif!</p>
+            </div>
+            <a href="#" class="play-btn">SİTEYE GİT</a>
+        </div>
+
+        <div class="server-card-horizontal">
+            <img src="https://placehold.co/70x70/blue/white?text=LOGO" class="server-logo">
+            <div style="flex-grow: 1;">
+                <h4 style="margin:0">AnatoliaKO - PK Server</h4>
+                <p style="margin:5px 0; font-size:13px; color:#9ca3af;">83/1 Full PK | Ücretsiz Pus!</p>
+            </div>
+            <a href="#" class="play-btn">SİTEYE GİT</a>
+        </div>
+    </div>
+
+    <div class="market-sidebar">
+        <h2 class="section-title" style="font-size: 1.1rem;">Son İlanlar</h2>
+        
+        <div class="item-card">
+            <img src="https://placehold.co/40x40/green/white?text=I" class="item-img">
+            <div class="item-info">
+                <span style="font-size:13px;">+9 Sirius Kılıcı</span>
+                <b>1.200 TL</b>
+            </div>
+        </div>
+
+        <div class="item-card">
+            <img src="https://placehold.co/40x40/red/white?text=G" class="item-img">
+            <div class="item-info">
+                <span style="font-size:13px;">21 GB - Dryads</span>
+                <b>850 TL</b>
+            </div>
         </div>
     </div>
 </div>
+
+<footer>
+    <div class="legal-notice">
+        <p><strong>Hukuki Uyarı:</strong> PvpPazari.com, 5651 sayılı kanun kapsamında "Yer Sağlayıcı" olarak hizmet vermektedir. Sitede yer alan tüm içerikler kullanıcılar tarafından eklenmektedir. Oyunların tüm hakları (Metin2 - Gameforge / Knight Online - Mgame) kendi şirketlerine aittir. Sitemiz sadece reklam ve ilan aracı bir platformdur.</p>
+        <p>&copy; 2026 PvpPazari.com - Tüm Hakları Saklıdır.</p>
+    </div>
+</footer>
 
 </body>
 </html>
