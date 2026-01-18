@@ -4,31 +4,56 @@
     <meta charset="UTF-8">
     <title>Reklam Ver | PvpPazari.com</title>
     <style>
-        body { background:#0f172a; color:white; font-family:sans-serif; text-align:center; padding-top:50px; }
-        .price-box { background:#1e293b; display:inline-block; padding:30px; border-radius:15px; border:2px solid #fbbf24; margin:10px; width:250px; }
-        .price { font-size:2rem; color:#fbbf24; margin:10px 0; }
-        .contact-btn { background:#2563eb; color:white; padding:15px 30px; text-decoration:none; border-radius:10px; font-weight:bold; display:inline-block; margin-top:30px; }
+        body { background: #0f172a; color: white; font-family: 'Inter', sans-serif; margin: 0; text-align: center; }
+        .header { background: #020617; padding: 50px; border-bottom: 3px solid #fbbf24; }
+        .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        .pricing-table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 12px; overflow: hidden; }
+        .pricing-table th, .pricing-table td { padding: 20px; border: 1px solid #334155; text-align: left; }
+        .pricing-table th { background: #fbbf24; color: black; }
+        .price-tag { color: #4ade80; font-weight: bold; font-size: 1.2rem; }
+        .contact-card { background: #2563eb; padding: 30px; border-radius: 12px; margin-top: 40px; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #fbbf24; text-decoration: none; }
     </style>
 </head>
 <body>
-    <h1>Reklam Alanları ve Fiyatlandırma</h1>
-    <p>Serverınızı binlerce oyuncuya ulaştırın.</p>
-    
-    <div class="price-box">
-        <h3>VİP Banner</h3>
-        <p>Ana Sayfa En Üst</p>
-        <div class="price">1.500 TL</div>
-        <small>Haftalık</small>
+    <div class="header">
+        <h1>Reklam & İş Birliği</h1>
+        <p>Serverınızı binlerce oyuncuyla buluşturun.</p>
     </div>
+    <div class="container">
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Reklam Alanı</th>
+                    <th>Süre</th>
+                    <th>Fiyat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>VIP Ana Sayfa Vitrin (Logo + Başlık)</td>
+                    <td>7 Gün</td>
+                    <td class="price-tag">1.500 TL</td>
+                </tr>
+                <tr>
+                    <td>Kayan Banner (Tüm Sayfalar)</td>
+                    <td>7 Gün</td>
+                    <td class="price-tag">500 TL</td>
+                </tr>
+                <tr>
+                    <td>Kategori Sabit Konu (En Üst)</td>
+                    <td>15 Gün</td>
+                    <td class="price-tag">750 TL</td>
+                </tr>
+            </tbody>
+        </table>
 
-    <div class="price-box" style="border-color:#3b82f6;">
-        <h3>Kayan Reklam</h3>
-        <p>Tüm Sayfalarda</p>
-        <div class="price">500 TL</div>
-        <small>Haftalık</small>
+        <div class="contact-card">
+            <h2>İletişime Geçin</h2>
+            <p>Reklam alımları için Discord üzerinden 7/24 bizimle iletişime geçebilirsiniz.</p>
+            <p><strong>Discord:</strong> PvpPazari#0001</p>
+        </div>
+        <a href="index.html" class="back-btn">← Ana Sayfaya Dön</a>
     </div>
-
-    <br>
-    <a href="https://discord.gg/linkin" class="contact-btn">Bize Discord'dan Ulaşın</a>
 </body>
 </html>
