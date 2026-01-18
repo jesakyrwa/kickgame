@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metin2 Ws'lik Serverlar | PvpPazari.com</title>
+    <style>
+        :root { --bg: #0f172a; --card: #1e293b; --primary: #fbbf24; --text: #f8fafc; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+        nav { background: #020617; padding: 15px; text-align: center; border-bottom: 2px solid var(--primary); }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        .server-card { background: var(--card); border-radius: 10px; padding: 20px; border: 1px solid #334155; text-align: center; transition: 0.3s; }
+        .server-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .badge { background: #ef4444; color: white; padding: 3px 8px; border-radius: 5px; font-size: 11px; font-weight: bold; }
+        .btn { background: var(--primary); color: #000; text-decoration: none; padding: 8px 15px; border-radius: 5px; display: block; margin-top: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<nav><a href="index.html" style="color:var(--primary); text-decoration:none; font-weight:bold; font-size:1.5rem;">PvpPazari.com</a></nav>
+
+<div class="container">
+    <h1 style="border-left: 5px solid var(--primary); padding-left: 15px;">Metin2 Ws'lik (65-250) Serverlar</h1>
+    <p style="color:#9ca3af;">Gereksiz farm yapmadan, doğrudan savaşa katılacağınız en iyi Wslik serverlar.</p>
+    
+    <div class="grid" id="wslik-list">
+        <script>
+            const servers = [
+                "SaltanatMT2", "ElvanMT2", "RinaMT2", "WslikOnline", "KralMT2", "AsaletMT2", "LordMT2", "PashaMT2",
+                "OttomanWS", "EfsaneWS", "BuzMT2", "GeceMT2", "HükümdarMT2", "AlestaWS", "MaviWS", "KırmızıWS",
+                "SavaşçıMT2", "LoncaMT2", "ArenaMT2", "Gladyatör2", "ZirveMT2", "OlimposMT2", "TruvaWS", "AnkaMT2",
+                "EjderMT2", "KaosWS", "VatanMT2", "AyyıldızMT2", "BordoMT2", "GölgeMT2"
+            ];
+            
+            const list = document.getElementById('wslik-list');
+            servers.forEach(s => {
+                list.innerHTML += `
+                    <div class="server-card">
+                        <span class="badge">WS'LİK</span>
+                        <h3>${s}</h3>
+                        <p style="font-size:13px; color:#9ca3af;">94 Başla 120 Bitir<br>Kadim Efsun Aktif</p>
+                        <span style="color:#4ade80; font-size:12px;">● 4.000+ Online</span>
+                        <a href="#" class="btn">HEMEN SAVAŞ</a>
+                    </div>
+                `;
+            });
+        </script>
+    </div>
+</div>
+
+</body>
+</html>
