@@ -2,36 +2,70 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Metin2 Emek Serverlar | PvpPazari</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metin2 Emek Serverlar (1-99) | PvpPazari</title>
     <style>
-        body { background: #0f172a; color: white; font-family: sans-serif; margin: 0; }
-        .nav-mini { background: #020617; padding: 15px; text-align: center; border-bottom: 2px solid #fbbf24; }
-        .server-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 40px; max-width: 1200px; margin: auto; }
-        .card { background: #1e293b; border-radius: 10px; padding: 20px; border: 1px solid #334155; position: relative; }
-        .card:hover { border-color: #fbbf24; transform: translateY(-3px); transition: 0.3s; }
-        .status { position: absolute; top: 15px; right: 15px; color: #4ade80; font-size: 12px; }
-        .btn { background: #fbbf24; color: black; padding: 8px; border-radius: 5px; text-decoration: none; display: block; text-align: center; font-weight: bold; margin-top: 15px; }
+        /* Ana Tema Ayarları */
+        body { background: #0f172a; color: white; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        
+        /* Üst Bilgi Alanı */
+        .header { background: #020617; padding: 40px 20px; text-align: center; border-bottom: 3px solid #fbbf24; }
+        .header h1 { margin: 0; color: #fbbf24; }
+        .header p { color: #9ca3af; margin: 10px 0 20px; }
+        .back-link { color: #fbbf24; text-decoration: none; font-weight: bold; font-size: 14px; border: 1px solid #fbbf24; padding: 8px 15px; border-radius: 5px; transition: 0.3s; }
+        .back-link:hover { background: #fbbf24; color: #000; }
+
+        /* Server Listesi Alanı */
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        
+        /* Server Kart Tasarımı */
+        .card { background: #1e293b; border: 1px solid #334155; padding: 25px; border-radius: 12px; text-align: center; position: relative; transition: 0.3s; }
+        .card:hover { border-color: #fbbf24; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .status { position: absolute; top: 15px; right: 15px; color: #4ade80; font-size: 11px; font-weight: bold; }
+        .card h3 { margin: 10px 0; font-size: 1.2rem; }
+        .card p { color: #9ca3af; font-size: 13px; line-height: 1.5; }
+        
+        /* İncele Butonu */
+        .btn { background: #fbbf24; color: black; padding: 10px 0; text-decoration: none; border-radius: 6px; font-weight: bold; display: block; margin-top: 15px; transition: 0.2s; }
+        .btn:hover { background: #f59e0b; }
     </style>
 </head>
 <body>
-    <div class="nav-mini"><a href="index.html" style="color:#fbbf24; text-decoration:none; font-weight:bold;">← PVPPAZARI ANA SAYFA</a></div>
-    <h1 style="text-align:center; margin-top:30px;">Metin2 1-99 / 1-105 Emek Serverlar</h1>
-    
-    <div class="server-grid">
-        <script>
-            const servers = ["EfsaneMT2", "MilasMT2", "AnadoluMT2", "HisarMT2", "MaviMT2", "KaderMT2", "SancakMT2", "OttomanMT2"];
-            for(let i=1; i<=30; i++) {
-                let name = servers[i % servers.length] + " " + (i > 8 ? "S" + i : "");
-                document.write(`
-                    <div class="card">
-                        <span class="status">● Aktif</span>
-                        <h3>${name}</h3>
-                        <p style="color:#9ca3af; font-size:13px;">1-99 Zor Emek Yapı<br>Lonca Turnuvaları Aktif!</p>
-                        <a href="#" class="btn">İNCELE</a>
-                    </div>
-                `);
-            }
-        </script>
+
+    <div class="header">
+        <h1>Metin2 Emek Serverlar</h1>
+        <p>1-99 ve 1-105 Arası En Güncel PvP Listesi</p>
+        <a href="index.html" class="back-link">← ANA SAYFAYA DÖN</a>
     </div>
+
+    <div class="container">
+        <div class="grid">
+            <script>
+                // Profesyonel isim listesi
+                const servers = ["MilasMT2", "HisarMT2", "AnadoluMT2", "MaviMT2", "ZindanMT2", "HieraMT2", "LovaMT2", "MarkMT2", "Rohan2", "Astra2"];
+                
+                for(let i=1; i<=30; i++) {
+                    // Liste bittikçe başa döner ve yanına numara ekler
+                    let baseName = servers[i % servers.length];
+                    let fullName = i > 10 ? baseName + " S" + i : baseName;
+                    
+                    document.write(`
+                        <div class="card">
+                            <span class="status">● AKTİF</span>
+                            <h3>${fullName}</h3>
+                            <p>Zor Emek Yapısı<br>Lonca Turnuvaları Ödüllü!</p>
+                            <a href="#" class="btn">SERVERI İNCELE</a>
+                        </div>
+                    `);
+                }
+            </script>
+        </div>
+    </div>
+
+    <footer style="text-align:center; padding:40px; color:#64748b; font-size:12px;">
+        &copy; 2026 PvpPazari.com - Tüm Hakları Saklıdır.
+    </footer>
+
 </body>
 </html>
